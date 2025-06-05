@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVA - Asistente de Educación a Distancia</title>
+    <title>EVA - Asistente de Educación a Distancia UTN</title>
     <style>
         * {
             margin: 0;
@@ -23,9 +23,9 @@
 
         .chat-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             height: 95vh;
-            max-height: 700px;
+            max-height: 750px;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -50,6 +50,15 @@
         .chat-header p {
             opacity: 0.9;
             font-size: 13px;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 8px;
         }
 
         .chat-messages {
@@ -251,6 +260,7 @@
             .chat-container {
                 height: 98vh;
                 border-radius: 15px;
+                max-width: 100%;
             }
             
             .message-content {
@@ -269,31 +279,36 @@
     <div class="chat-container">
         <div class="chat-header">
             <h1>🎓 EVA - Centro de e-Learning UTN</h1>
-            <p>Tu Asistente Virtual de Educación a Distancia</p>
+            <p>Tu Asistente Virtual de Educación a Distancia <span class="version-badge">v2.0</span></p>
         </div>
         
         <div class="chat-messages" id="chatMessages">
             <div class="message eva">
                 <div class="avatar">E</div>
                 <div class="message-content">
-                    ¡Hola! Soy EVA, tu asistente del Centro de e-Learning UTN. Puedo ayudarte con:
+                    ¡Hola! Soy EVA, tu asistente de Educación a Distancia y puedo ayudarte con:
                     <br><br>
-                    🎓 <strong>Conceptos</strong>: SIED, flexibilidad educativa<br>
-                    🛠️ <strong>Herramientas</strong>: Moodle, SIGEAD<br>
-                    📚 <strong>Recursos</strong>: tutoriales, materiales<br>
-                    📋 <strong>Metodología</strong>: evaluación, objetivos
+                    📜 <strong>Marco normativo</strong>: Ordenanza 1637, reglamentos<br>
+                    🏛️ <strong>Estructura SIED</strong>: CEA, RED, Unidad de Gestión<br>
+                    👨‍🏫 <strong>Competencias docentes</strong>: 9 competencias específicas<br>
+                    🛠️ <strong>Herramientas</strong>: Moodle, SIGEAD, Campus Virtual<br>
+                    📚 <strong>Recursos</strong>: Materiales, tutoriales, evaluación<br>
+                    ⭐ <strong>Buenas prácticas</strong>: Modelo Chickering-Gamson<br>
+                    🧠 <strong>Marco conceptual</strong>: Enfoque pedagógico UTN
                     <br><br>
                     ¿En qué puedo ayudarte?
                 </div>
             </div>
             
             <div class="suggestions">
-                <div class="suggestion" onclick="sendSuggestion('¿Qué es el SIED?')">SIED UTN</div>
-                <div class="suggestion" onclick="sendSuggestion('Criterios de evaluación UTN')">Criterios evaluación</div>
-                <div class="suggestion" onclick="sendSuggestion('Fundamentos de EaD')">Fundamentos EaD</div>
-                <div class="suggestion" onclick="sendSuggestion('Calendario académico')">Calendario</div>
-                <div class="suggestion" onclick="sendSuggestion('Tutoriales disponibles')">Tutoriales</div>
-                <div class="suggestion" onclick="sendSuggestion('Políticas internacionales')">Marco internacional</div>
+                <div class="suggestion" onclick="sendSuggestion('Ordenanza 1637 del SIED')">Ordenanza 1637</div>
+                <div class="suggestion" onclick="sendSuggestion('Competencias docentes EaD')">Competencias docentes</div>
+                <div class="suggestion" onclick="sendSuggestion('Buenas prácticas Chickering-Gamson')">Buenas prácticas</div>
+                <div class="suggestion" onclick="sendSuggestion('Estructura organizacional SIED')">Estructura SIED</div>
+                <div class="suggestion" onclick="sendSuggestion('Marco conceptual pedagógico')">Marco conceptual</div>
+                <div class="suggestion" onclick="sendSuggestion('Guía autoevaluación docente')">Guía docente</div>
+                <div class="suggestion" onclick="sendSuggestion('Metodología evaluación integral')">Evaluación integral</div>
+                <div class="suggestion" onclick="sendSuggestion('Tipos de cambio pedagógico')">Cambio pedagógico</div>
             </div>
         </div>
         
@@ -309,14 +324,14 @@
         
         <div class="chat-input">
             <div class="input-container">
-                <input type="text" id="messageInput" placeholder="Escribe tu pregunta aquí..." onkeypress="handleKeyPress(event)">
+                <input type="text" id="messageInput" placeholder="Escribe tu pregunta sobre el SIED UTN..." onkeypress="handleKeyPress(event)">
                 <button class="send-button" onclick="sendMessage()">Enviar</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Base de conocimiento extraída de los documentos
+        // Base de conocimiento original
         const knowledgeBase = {
             "flexibilidad": {
                 keywords: ["flexibilidad", "flexible", "flexibles"],
@@ -361,6 +376,58 @@
             "calendario_academico": {
                 keywords: ["calendario", "fechas", "cronograma", "períodos", "cuatrimestre", "cursado", "exámenes", "finales", "inicio", "inscripción"],
                 content: "¡Hola! Para consultar todas las fechas importantes encontrás todo en nuestro calendario académico oficial 📅\n\n**Calendario académico**: https://centrodeelearning.com/documentos/calendario_academico_2024_carreras.pdf\n\nAhí vas a encontrar:\n• Cuándo empiezan y terminan los cuatrimestres\n• Fechas de inscripciones\n• Cronograma de finales\n• Feriados y recesos\n• Todas las actividades académicas\n\n¡Cualquier duda sobre las fechas, consultá el calendario que siempre está actualizado! 😊"
+            }
+        };
+
+        // Base de conocimiento ampliada extraída de los documentos oficiales
+        const expandedKnowledgeBase = {
+            "reglamento_sied": {
+                keywords: ["reglamento", "ordenanza", "1637", "normativa", "marco regulatorio"],
+                content: "**📜 Reglamento del SIED UTN (Ordenanza N° 1637/2018)**\n\nEl Sistema Institucional de Educación a Distancia de la UTN está regulado por la Ordenanza N° 1637 aprobada en 2018.\n\n**Aspectos clave del reglamento**:\n• **Definición oficial**: EaD como opción pedagógica donde docente-alumno están separados en tiempo y/o espacio\n• **Criterio cuantitativo**: Carreras con más del 50% de horas no presenciales se consideran a distancia\n• **Equivalencia académica**: Los diplomas no harán mención de la modalidad pedagógica\n• **Marco de calidad**: Cumple estándares nacionales establecidos por CONEAU\n\n**Propósitos del SIED**:\n• Democratizar acceso a educación superior\n• Consolidar procesos formativos de calidad\n• Implementar procesos normados en todas las Unidades Académicas\n• Asegurar trabajo articulado de actores institucionales"
+            },
+            "estructura_organizacional": {
+                keywords: ["estructura", "organización", "unidad de gestión", "cea", "red", "secretarías"],
+                content: "**🏛️ Estructura Organizacional del SIED UTN**\n\n**Componentes principales**:\n\n**1. Unidad de Gestión en Educación a Distancia**\n• Dependiente de Secretaría Académica - Subsecretaría de Planeamiento\n• Coordina marco conceptual pedagógico y procedimental\n• Define criterios tecnopedagógicos del SIED\n\n**2. Consejo de Educación a Distancia (CEA)**\n• Mínimo 3 miembros especialistas acreditados\n• Evaluación y asesoramiento de propuestas\n• Permanencia de 2 años con rotación\n\n**3. Red de Referentes de Educación a Distancia (RED)**\n• Un representante por Unidad Académica\n• Socialización de actividades\n• Intercambio de experiencias y proyectos\n\n**4. Secretarías de apoyo**:\n• **Tecnologías de la Información y Comunicación**: Infraestructura tecnológica\n• **Ciencia, Tecnología y Posgrado**: Propuestas de posgrado"
+            },
+            "docentes_sied": {
+                keywords: ["docentes", "profesores", "competencias", "capacitación", "roles", "funciones"],
+                content: "**👨‍🏫 Docentes en el SIED UTN**\n\n**Requisitos y competencias**:\n• Selección según Estatuto Universitario y Reglamento de Concursos\n• **Acreditación obligatoria** de competencias en educación a distancia\n• Conocimiento de características específicas de la modalidad\n• Manejo de TIC y comunicación didáctica mediatizada\n\n**Competencias específicas requeridas**:\n1. **Modalidad**: Conocer subsistemas (materiales, tutorías, gestión, evaluación)\n2. **Tecnológicas**: Funcionamiento y aplicación de TIC\n3. **Comunicación**: Competencias para comunicación didáctica mediatizada\n4. **Tutoría**: Estrategias sincrónicas y asincrónicas\n5. **Materiales**: Selección de recursos en diferentes soportes\n6. **Plataformas**: Conocimiento del aula virtual\n7. **Evaluación**: Habilidades específicas para evaluación en modalidad\n\n**Funciones principales**:\n• Enseñar contenidos disciplinares\n• Brindar orientación sobre fuentes de información\n• Promover interacción entre participantes\n• Seleccionar y elaborar materiales educativos\n• Mantener comunicación estrecha con autoridades"
+            },
+            "estudiantes_sied": {
+                keywords: ["estudiantes", "alumnos", "derechos", "obligaciones", "propedéutico", "alfabetización"],
+                content: "**🎓 Estudiantes en el SIED UTN**\n\n**Derechos y obligaciones**:\n• Mismos derechos que modalidad presencial\n• Sujetos a Reglamentos de Estudios UTN\n• Ingreso, permanencia y egreso según normativa general\n\n**Apoyo institucional obligatorio**:\n• **Curso propedéutico de alfabetización digital**\n• Facilitación del acceso a carreras del SIED\n• Uso de diversos medios de comunicación\n• Tecnología educativa apropiada\n\n**Características del cursado**:\n• Flexibilidad temporal y espacial\n• Acceso a materiales 24/7\n• Comunicación mediada por tecnologías\n• Aprendizaje autorregulado con apoyo institucional\n• Evaluación continua y registro integral del proceso\n\n**Requisitos específicos**:\n• Competencias digitales básicas\n• Autonomía en el aprendizaje\n• Disciplina para gestión del tiempo\n• Capacidad de comunicación escrita"
+            },
+            "materiales_didacticos": {
+                keywords: ["materiales", "didácticos", "recursos", "multimedia", "bibliografía", "contenidos"],
+                content: "**📚 Materiales Didácticos en el SIED UTN**\n\n**Desarrollo interdisciplinario**:\n• Trabajo colaborativo entre docentes disciplinares\n• Participación de pedagogos especializados\n• Expertos en tecnología educativa\n• Adecuación al modelo educativo del SIED\n\n**Características de calidad**:\n• **Estructura clara**: Título representativo, objetivos medibles (3-4), índice jerarquizado\n• **Coherencia pedagógica**: Introducción, conexiones temáticas, cierre/resumen\n• **Formato multimedia**: Diferentes soportes y formatos\n• **Accesibilidad**: Garantía de acceso para todos los estudiantes\n\n**Supervisión y control**:\n• Unidad de Gestión como instancia de consulta\n• Asesoramiento en aspectos disciplinares y pedagógicos\n• Control de calidad en diseño y desarrollo tecnológico\n• Tratamiento adecuado de aspectos didácticos\n\n**Curaduría de contenidos**:\n• Selección de recursos educativos de calidad\n• Videos, artículos, simulaciones, podcasts\n• Organización sistemática de materiales\n• Actualización permanente de recursos"
+            },
+            "recursos_tecnologicos": {
+                keywords: ["campus virtual", "moodle", "videoconferencia", "red", "tecnología", "plataformas"],
+                content: "**💻 Recursos Tecnológicos del SIED UTN**\n\n**Plataformas principales**:\n\n**1. Campus Virtual Global**\n• Entorno virtual de enseñanza y aprendizaje\n• Interacción sincrónica y asincrónica\n• Garantía de comunicación docente-alumno\n\n**2. Red Nacional de Videoconferencia**\n• Equipos profesionales en cada Unidad Académica\n• Reuniones virtuales entre sedes\n• Conexión nacional e internacional\n• Audio, video y contenidos multimediales\n\n**3. Red Universitaria Tecnológica**\n• Comunicaciones integradas (datos, voz, video)\n• Vinculación de todas las Unidades Académicas\n• Infraestructura robusta y confiable\n\n**4. Soluciones colaborativas**\n• OneDrive para almacenamiento\n• Skype para Negocios\n• Adobe Connect\n• Otras herramientas de comunicación\n\n**Gestión tecnológica**:\n• Responsabilidad de Secretaría de TIC\n• Diseño y mantenimiento de plataformas\n• Soporte técnico permanente\n• Actualización continua de recursos"
+            },
+            "evaluacion_sistema": {
+                keywords: ["evaluación", "calidad", "dimensiones", "indicadores", "mejora continua"],
+                content: "**📊 Evaluación del SIED UTN**\n\n**Metodología de evaluación**:\n• Mecanismos técnicos integrales\n• Triangulación de instrumentos diversos\n• Enfoque cualitativo y cuantitativo\n• Recolección sistemática de datos\n\n**Cuatro dimensiones de evaluación**:\n\n**1. Dimensión Gestión**:\n• Comunicación y difusión de oferta académica\n• Coordinación e integración de instancias\n• Definición de roles y funciones\n• Organización de instancias presenciales\n• Supervisión de evaluaciones\n\n**2. Dimensión Pedagógica**:\n• Estrategias de alfabetización digital\n• Capacitaciones docentes\n• Interacción en procesos de enseñanza-aprendizaje\n• Mecanismos de tutoría y seguimiento\n• Producción de materiales diversos\n\n**3. Dimensión Tecnológica**:\n• Infraestructura y equipamiento\n• Suficiencia de recursos humanos y tecnológicos\n• Criterios de actualización tecnológica\n\n**4. Dimensión Administrativa**:\n• Procedimientos de recolección de datos\n• Sistemas de comunicación institucional\n\n**Mejora continua**:\n• Informes cuatrimestrales del CEA\n• Planes de mejora implementados\n• Seguimiento sistemático de resultados"
+            },
+            "unidades_apoyo": {
+                keywords: ["unidades de apoyo", "sedes", "extensión", "anexos", "soporte"],
+                content: "**🏢 Unidades de Apoyo del SIED UTN**\n\n**Tipos de unidades**:\n\n**1. Unidades de Apoyo Tecnológico**\n• Soporte tecnológico exclusivo\n• Capacitación en tecnología virtual\n• Fuera del ámbito físico universitario\n\n**2. Unidades de Apoyo Académicas**\n• Actividades académicas específicas\n• Clases presenciales y tutorías\n• Sedes de prácticas y evaluaciones\n• Supervisión docente universitaria\n\n**3. Unidades de Apoyo Mixtas**\n• Combinación de actividades académicas\n• Soporte tecnológico integral\n• Servicios completos para estudiantes\n\n**Marco regulatorio**:\n• Ordenanza N° 1179: Lineamientos para oferta fuera de sedes centrales\n• Diferenciación entre \"Anexo\" y \"Extensión Áulica\"\n• Procedimientos de aprobación específicos\n\n**Requisitos para implementación**:\n• Propuesta elevada a Secretaría Académica\n• Razón social y datos de contacto\n• Convenios firmados e inscripción ministerial\n• CV del responsable académico\n• Especificación de actividades y frecuencia\n• Criterios de selección docente"
+            },
+            "buenas_practicas_ead": {
+                keywords: ["buenas prácticas", "calidad docente", "chickering", "gamson", "virtual"],
+                content: "**⭐ Buenas Prácticas en Educación a Distancia**\n\n**Basado en el modelo de Chickering y Gamson (1987)**:\n\n**Las 7 prácticas fundamentales**:\n\n**1. Promover relaciones docente-estudiante** 👥\n• Comunicación clara y directa\n• Canales múltiples de contacto\n• Respuesta oportuna (máximo 24 horas)\n• Orientación personalizada\n\n**2. Desarrollar cooperación entre estudiantes** 🤝\n• Foros de ayuda mutua\n• Trabajos colaborativos\n• Proyectos en equipo\n• Intercambio de experiencias\n\n**3. Aplicar técnicas activas de aprendizaje** 🎯\n• Proyectos prácticos\n• Estudios de caso\n• Simulaciones interactivas\n• Resolución de problemas reales\n\n**4. Proporcionar retroalimentación efectiva** 💬\n• Comentarios constructivos oportunos\n• Retroalimentación informativa y de reconocimiento\n• Evaluación continua del progreso\n• Orientación para mejora\n\n**5. Enfatizar tiempo de dedicación** ⏰\n• Fechas de entrega claras\n• Cronogramas estructurados\n• Gestión efectiva del tiempo\n• Dedicación sostenida a tareas\n\n**6. Comunicar altas expectativas** 🎖️\n• Estándares de calidad claros\n• Desafíos apropiados al nivel\n• Ejemplos de excelencia\n• Motivación hacia logros superiores\n\n**7. Respetar diversidad de aprendizaje** 🌈\n• Opciones múltiples de actividades\n• Diferentes formatos de contenido\n• Flexibilidad en metodologías\n• Personalización de trayectorias\n\n**Implementación en entornos virtuales**:\n• Diseño de actividades multimedia\n• Uso efectivo de herramientas tecnológicas\n• Creación de comunidades de aprendizaje\n• Evaluación auténtica y continua"
+            },
+            "marco_conceptual": {
+                keywords: ["marco conceptual", "pedagogía", "socioconstructivista", "sistémico", "enfoque"],
+                content: "**🧠 Marco Conceptual-Pedagógico del SIED UTN**\n\n**Enfoque pedagógico**:\n• **Socioconstructivista**: Construcción colaborativa del conocimiento\n• **Sistémico**: Integración de múltiples componentes\n• **Mediado por tecnologías**: Uso estratégico de TIC\n• **Flexible y dinámico**: Adaptación a cambios tecnológicos y científicos\n\n**Principios fundamentales**:\n\n**1. Interactividad cognitiva** 🧩\n• Diferenciada de interactividad instrumental\n• Reconstrucción significativa de contenidos\n• Desarrollo del pensamiento crítico\n• Construcción de nueva mirada del mundo\n\n**2. Mediación tecnopedagógica** 💡\n• Materiales especialmente diseñados\n• Formato multimedia apropiado\n• Intervención docente estratégica\n• Acompañamiento tutorial efectivo\n\n**3. Formación por competencias** 🎯\n• Respuesta a situaciones reales\n• Esquemas de actuación transferibles\n• Contextos potenciales generalizables\n• Impacto en práctica educativa\n\n**4. Comunicación didáctica** 📡\n• Relación pedagógica comunicacional\n• Interacción constructiva\n• Diálogo transformador\n• Respeto mutuo y proyección\n\n**5. Entornos virtuales de aprendizaje** 🌐\n• Campus electrónico integrado\n• Modularidad e interconexión\n• Incremento en acceso y calidad\n• Redes institucionales colaborativas\n\n**Objetivos estratégicos 2018-2022**:\n• Formación universitaria de excelencia\n• Fortalecimiento de investigación e innovación\n• Compromiso con desarrollo social y cultural\n• Procesos de internacionalización\n• Consolidación de comunidad universitaria"
+            },
+            "guia_buenas_practicas": {
+                keywords: ["guía", "autoevaluación", "momentos", "preactivo", "intervención", "post-táctico", "cambio"],
+                content: "**📋 Guía para Buenas Prácticas Docentes en EaD**\n\n**Metodología de 3 momentos para transformación pedagógica profunda**:\n\n**🎯 MOMENTO PREACTIVO**\n• **Objetivo**: Anticiparse a los acontecimientos\n• **Procesos**: Planificar, investigar, desaprender, adoptar, internalizar\n• **Autoevaluación**: 8 criterios + 3 preguntas cerradas\n• **Meta**: Rupturas epistémicas y nueva cultura didáctica\n\n**⚡ MOMENTO DE INTERVENCIÓN**\n• **Objetivo**: Aplicar buenas prácticas durante ejecución curricular\n• **Procesos**: Evaluar, instruir, transferir, mediar, retroalimentar\n• **Evaluación estudiantil**: Impacto de actividades en aprendizaje\n• **Meta**: Monitoreo permanente y ajustes necesarios\n\n**🔍 MOMENTO POST-TÁCTICO**\n• **Objetivo**: Reflexionar sobre proceso realizado\n• **Procesos**: Analizar, autoevaluar, apreciar, reflexionar\n• **Cuestionario**: 18 preguntas categorizadas\n• **Meta**: Determinar tipo de cambio (superficial vs profundo)\n\n**Tipos de cambio docente**:\n• **Cambio Tipo 1**: Superficial, transitorio, cosmético\n• **Cambio Tipo 2**: Profundo, genuino, permanente\n\n**Evaluación final**: Si +50% respuestas corresponden a Cambio 2 = transformación pedagógica genuina"
+            },
+            "metodologia_evaluacion": {
+                keywords: ["metodología", "evaluación", "tipos", "diagnóstica", "formativa", "sumativa", "criterios"],
+                content: "**📊 Metodología de Evaluación en EaD UTN**\n\n**Tipos de evaluación integral**:\n\n**🔍 Evaluación Diagnóstica**\n• Conocimientos previos del estudiante\n• Aplicada al inicio del período académico\n• Establece línea base de aprendizaje\n• Permite personalización de contenidos\n\n**📈 Evaluación Formativa (Continua)**\n• Durante todo el proceso educativo\n• Retroalimentación permanente\n• Identificación temprana de dificultades\n• Ajustes metodológicos oportunos\n\n**🎯 Evaluación Sumativa (Final)**\n• Al finalizar el período académico\n• Certificación de logros alcanzados\n• Validación de competencias desarrolladas\n• Promoción o acreditación final\n\n**🏆 Evaluación de Proficiencia**\n• Competencias generales transversales\n• Habilidades meta-cognitivas\n• Aplicación en contextos diversos\n• Transferencia de aprendizajes\n\n**Características de calidad evaluativa**:\n• **Sistemática**: Planificada y organizada\n• **Integral**: Contempla múltiples dimensiones\n• **Flexible**: Adaptable a diferentes contextos\n• **Recurrente**: Continua en el tiempo\n• **Transparente**: Criterios claros y conocidos\n• **Formativa**: Orientada al aprendizaje"
             }
         };
 
@@ -448,6 +515,48 @@
             {
                 title: "Criterios de evaluación",
                 url: "https://centrodeelearning.com/files/Criterios%20y%20metodología%20de%20evaluación.pdf"
+            },
+            // Nuevos tutoriales agregados de documentos oficiales
+            {
+                title: "Marco normativo del SIED UTN - Ordenanza 1637",
+                url: "https://centrodeelearning.com/documentos/ordenanza_1637_sied.pdf"
+            },
+            {
+                title: "Competencias docentes en Educación a Distancia",
+                url: "https://centrodeelearning.com/documentos/competencias_docentes_ead.pdf"
+            },
+            {
+                title: "Buenas prácticas educativas Chickering-Gamson",
+                url: "https://centrodeelearning.com/files/buenas_practicas_virtuales.pdf"
+            },
+            {
+                title: "Evaluación integral en educación a distancia",
+                url: "https://centrodeelearning.com/files/evaluacion_ead_utn.pdf"
+            },
+            {
+                title: "Estructura organizacional del SIED",
+                url: "https://centrodeelearning.com/documentos/estructura_sied_utn.pdf"
+            },
+            {
+                title: "Unidades de apoyo y extensiones académicas",
+                url: "https://centrodeelearning.com/files/unidades_apoyo_sied.pdf"
+            },
+            {
+                title: "Marco conceptual-pedagógico UTN",
+                url: "https://centrodeelearning.com/documentos/marco_conceptual_pedagogico.pdf"
+            },
+            // Nuevos tutoriales de metodología y evaluación
+            {
+                title: "Guía para autoevaluación docente - 3 momentos",
+                url: "https://centrodeelearning.com/files/guia_autoevaluacion_docente.pdf"
+            },
+            {
+                title: "Metodología de evaluación integral en EaD",
+                url: "https://centrodeelearning.com/files/metodologia_evaluacion_integral.pdf"
+            },
+            {
+                title: "Transformación pedagógica: Cambio Tipo 1 vs Tipo 2",
+                url: "https://centrodeelearning.com/files/tipos_cambio_pedagogico.pdf"
             }
         ];
 
@@ -522,19 +631,69 @@
             document.getElementById('typing').style.display = 'none';
         }
 
+        // Función de generación de respuestas integrada
         function generateResponse(message) {
             const messageLower = message.toLowerCase();
+            
+            // Primero buscar en toda la base de conocimiento integrada
+            const completeKnowledgeBase = {...knowledgeBase, ...expandedKnowledgeBase};
             
             if (messageLower.includes('tutorial') || messageLower.includes('video') || messageLower.includes('enlace')) {
                 return generateTutorialResponse(messageLower);
             }
             
-            for (const [topic, data] of Object.entries(knowledgeBase)) {
+            // Búsqueda en base de conocimiento completa
+            for (const [topic, data] of Object.entries(completeKnowledgeBase)) {
                 for (const keyword of data.keywords) {
                     if (messageLower.includes(keyword)) {
                         return data.content;
                     }
                 }
+            }
+            
+            // Respuestas específicas mejoradas
+            if (messageLower.includes('ordenanza') || messageLower.includes('reglamento') || messageLower.includes('1637')) {
+                return expandedKnowledgeBase.reglamento_sied.content;
+            }
+            
+            if (messageLower.includes('estructura') || messageLower.includes('organización') || messageLower.includes('cea') || messageLower.includes('red')) {
+                return expandedKnowledgeBase.estructura_organizacional.content;
+            }
+            
+            if (messageLower.includes('competencias docente') || messageLower.includes('capacitación') || messageLower.includes('acreditación')) {
+                return expandedKnowledgeBase.docentes_sied.content;
+            }
+            
+            if (messageLower.includes('buenas prácticas') || messageLower.includes('chickering') || messageLower.includes('gamson')) {
+                return expandedKnowledgeBase.buenas_practicas_ead.content;
+            }
+            
+            if (messageLower.includes('marco conceptual') || messageLower.includes('pedagógico') || messageLower.includes('socioconstructivista')) {
+                return expandedKnowledgeBase.marco_conceptual.content;
+            }
+            
+            if (messageLower.includes('guía') || messageLower.includes('autoevaluación') || messageLower.includes('momentos')) {
+                return expandedKnowledgeBase.guia_buenas_practicas.content;
+            }
+            
+            if (messageLower.includes('metodología') || messageLower.includes('tipos de evaluación') || messageLower.includes('diagnóstica') || messageLower.includes('formativa')) {
+                return expandedKnowledgeBase.metodologia_evaluacion.content;
+            }
+            
+            if (messageLower.includes('cambio tipo') || messageLower.includes('transformación') || messageLower.includes('superficial') || messageLower.includes('profundo')) {
+                return "**🔄 Tipos de Cambio en la Práctica Docente**\n\n" +
+                       "**Cambio Tipo 1 (Superficial)**:\n" +
+                       "• Modificaciones cosméticas y transitorias\n" +
+                       "• No cambia pensamiento pedagógico\n" +
+                       "• Adopción por cumplimiento\n" +
+                       "• Resultados temporales\n\n" +
+                       "**Cambio Tipo 2 (Profundo)**:\n" +
+                       "• Transformación genuina y permanente\n" +
+                       "• Modifica conocimiento pedagógico\n" +
+                       "• Adopción por convencimiento\n" +
+                       "• Impacto duradero en la práctica\n\n" +
+                       "**¿Cómo identificar tu tipo de cambio?**\n" +
+                       "Utiliza la guía de autoevaluación de 3 momentos para determinar si tu adopción de buenas prácticas representa un cambio superficial o una transformación pedagógica genuina.";
             }
             
             if (messageLower.includes('cuestionario') || messageLower.includes('examen') || messageLower.includes('evaluación')) {
@@ -544,6 +703,8 @@
                        tutorials.find(t => t.title.includes('IA')).url +
                        "\n• **Criterios de evaluación**: " + 
                        tutorials.find(t => t.title.includes('Criterios')).url +
+                       "\n• **Marco normativo**: " + 
+                       tutorials.find(t => t.title.includes('normativo')).url +
                        "\n\n¿Necesitas ayuda específica con evaluaciones?";
             }
             
@@ -556,41 +717,102 @@
             }
             
             if (messageLower.includes('calendario') || messageLower.includes('fechas') || messageLower.includes('cronograma') || messageLower.includes('cuatrimestre')) {
-                return "**📅 Calendario Académico 2024**\n\n" +
-                       "Para consultar todas las fechas importantes del año académico:\n\n" +
-                       "**Calendario oficial**: " + tutorials.find(t => t.title.includes('Calendario')).url + "\n\n" +
-                       "**Incluye información sobre**:\n• Inicio y fin de cuatrimestres\n• Períodos de inscripción\n• Fechas de exámenes\n• Recesos y feriados académicos\n• Cronograma completo de actividades\n\n" +
-                       "*📌 Consulta el documento oficial para fechas exactas y posibles actualizaciones.*";
+                return knowledgeBase.calendario_academico.content;
             }
             
-            return "Estoy disponible para asistirle en diversos aspectos de la educación a distancia:\n\n🎓 **Fundamentos teóricos**: Principios, características y componentes de EaD\n🌍 **Marco internacional**: Políticas UNESCO, legislación latinoamericana\n🏛️ **Marco institucional**: SIED UTN, REMAD, sistemas de calidad\n📊 **Evaluación UTN**: Criterios, metodología y requisitos de regularidad\n🛠️ **Herramientas técnicas**: Moodle, SIGEAD, configuraciones\n📚 **Recursos educativos**: Materiales didácticos, tutoriales especializados\n📅 **Información práctica**: Calendario académico, procedimientos\n\n**Consultas sugeridas**:\n• 'Criterios de evaluación UTN'\n• 'Fundamentos de la educación a distancia'\n• 'Políticas internacionales de EaD'\n• 'Marco regulatorio en Latinoamérica'\n• 'Configuración de herramientas Moodle'\n\n¿En qué área específica requiere asistencia?";
+            // Respuesta por defecto mejorada
+            return "Mi base de conocimiento incluye información completa del SIED UTN. Puedo asistirte en:\n\n" +
+                   "📜 **Marco normativo**: Ordenanza 1637, reglamentos, procedimientos\n" +
+                   "🏛️ **Estructura organizacional**: CEA, RED, Unidad de Gestión, secretarías\n" +
+                   "👨‍🏫 **Competencias docentes**: 9 competencias específicas, capacitación, roles\n" +
+                   "🎓 **Estudiantes**: Derechos, obligaciones, cursos propedéuticos, apoyo\n" +
+                   "📚 **Materiales didácticos**: Desarrollo interdisciplinario, curaduría, calidad\n" +
+                   "💻 **Recursos tecnológicos**: Campus Virtual Global, videoconferencia, redes\n" +
+                   "📊 **Evaluación del sistema**: 4 dimensiones, indicadores, mejora continua\n" +
+                   "🏢 **Unidades de apoyo**: Tecnológicas, académicas, mixtas\n" +
+                   "⭐ **Buenas prácticas**: Modelo Chickering-Gamson, implementación virtual\n" +
+                   "🧠 **Marco conceptual**: Enfoque socioconstructivista, mediación tecnológica\n" +
+                   "📋 **Guía docente**: Autoevaluación 3 momentos, transformación pedagógica\n" +
+                   "🎯 **Metodología evaluativa**: Diagnóstica, formativa, sumativa, proficiencia\n" +
+                   "🔄 **Tipos de cambio**: Superficial vs profundo, transformación genuina\n" +
+                   "🛠️ **Herramientas técnicas**: Moodle, SIGEAD, configuraciones avanzadas\n" +
+                   "📅 **Información práctica**: Calendario, procedimientos, normativas\n\n" +
+                   "**Ejemplos de consultas**:\n" +
+                   "• 'Ordenanza 1637 del SIED'\n" +
+                   "• 'Competencias docentes en EaD'\n" +
+                   "• 'Buenas prácticas Chickering-Gamson'\n" +
+                   "• 'Estructura del CEA y RED'\n" +
+                   "• 'Guía de autoevaluación docente'\n" +
+                   "• 'Metodología de evaluación integral'\n" +
+                   "• 'Tipos de cambio pedagógico'\n\n" +
+                   "¿En qué área específica del SIED UTN necesitas asistencia?";
         }
 
         function generateTutorialResponse(message) {
             if (message.includes('todos') || message.includes('disponibles')) {
-                let response = "**Tutoriales disponibles**:\n\n";
-                tutorials.slice(0, 8).forEach((tutorial, index) => {
+                let response = "**📚 Tutoriales y recursos disponibles**:\n\n";
+                
+                // Tutoriales técnicos
+                response += "**🛠️ Herramientas técnicas:**\n";
+                tutorials.slice(0, 13).forEach((tutorial, index) => {
                     response += `${index + 1}. **${tutorial.title}**\n   ${tutorial.url}\n\n`;
                 });
-                response += "¿Necesitas algún tutorial específico?";
+                
+                // Documentos normativos y pedagógicos
+                response += "**📜 Marco normativo y pedagógico:**\n";
+                tutorials.slice(-7).forEach((tutorial, index) => {
+                    response += `${index + 14}. **${tutorial.title}**\n   ${tutorial.url}\n\n`;
+                });
+                
+                response += "¿Necesitas algún tutorial específico o tienes dudas sobre algún tema?";
                 return response;
             }
             
+            // Búsqueda específica de tutoriales
             const matchedTutorials = tutorials.filter(t => 
                 message.split(' ').some(word => 
-                    t.title.toLowerCase().includes(word)
+                    t.title.toLowerCase().includes(word) || 
+                    (word.length > 3 && t.title.toLowerCase().includes(word))
                 )
             );
             
             if (matchedTutorials.length > 0) {
-                let response = "**Tutoriales encontrados**:\n\n";
-                matchedTutorials.forEach(tutorial => {
-                    response += `• **${tutorial.title}**\n  ${tutorial.url}\n\n`;
+                let response = "**📖 Tutoriales encontrados**:\n\n";
+                matchedTutorials.forEach((tutorial, index) => {
+                    response += `${index + 1}. **${tutorial.title}**\n   ${tutorial.url}\n\n`;
                 });
                 return response;
             }
             
-            return "Tengo tutoriales sobre: cuestionarios, calificador, SIGEAD, Zoom, herramientas externas, etc. ¿Qué tema te interesa?";
+            // Categorías específicas
+            if (message.includes('normativo') || message.includes('ordenanza') || message.includes('reglamento')) {
+                return "**📜 Documentación normativa:**\n\n" +
+                       "• **Marco normativo del SIED UTN - Ordenanza 1637**\n" +
+                       "• **Competencias docentes en Educación a Distancia**\n" +
+                       "• **Estructura organizacional del SIED**\n" +
+                       "• **Marco conceptual-pedagógico UTN**\n\n" +
+                       "¿Te interesa algún documento específico?";
+            }
+            
+            if (message.includes('pedagógico') || message.includes('didáctico') || message.includes('buenas prácticas')) {
+                return "**🎓 Recursos pedagógicos:**\n\n" +
+                       "• **Buenas prácticas educativas Chickering-Gamson**\n" +
+                       "• **Evaluación integral en educación a distancia**\n" +
+                       "• **Criterios de evaluación**\n" +
+                       "• **Marco conceptual-pedagógico UTN**\n\n" +
+                       "¿Necesitas información sobre algún aspecto pedagógico específico?";
+            }
+            
+            return "Tengo tutoriales organizados por categorías:\n\n" +
+                   "🛠️ **Técnicos**: Moodle, SIGEAD, calificador, herramientas\n" +
+                   "📜 **Normativos**: Ordenanzas, reglamentos, competencias\n" +
+                   "🎓 **Pedagógicos**: Buenas prácticas, evaluación, didáctica\n" +
+                   "📅 **Administrativos**: Calendarios, procedimientos\n\n" +
+                   "Escribe 'tutoriales disponibles' para ver la lista completa o especifica qué tema te interesa.";
+        }
+    </script>
+</body>
+</html>
         }
     </script>
 </body>
