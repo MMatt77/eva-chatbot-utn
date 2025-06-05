@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVA - Asistente de Educación a Distancia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 95vh;
+            max-height: 700px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .chat-header h1 {
+            font-size: 22px;
+            margin-bottom: 3px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 13px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8fafc;
+            min-height: 0;
+        }
+
+        .message {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 16px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            font-size: 14px;
+        }
+
+        .message.eva .message-content {
+            background: #e5e7eb;
+            color: #374151;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: #1f2937;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .message.eva .avatar {
+            background: #dc2626;
+            color: white;
+        }
+
+        .message.user .avatar {
+            background: #1f2937;
+            color: white;
+            margin-right: 0;
+            margin-left: 8px;
+        }
+
+        .chat-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            flex-shrink: 0;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .input-container input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .input-container input:focus {
+            border-color: #dc2626;
+        }
+
+        .send-button {
+            padding: 10px 16px;
+            background: #dc2626;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-size: 14px;
+        }
+
+        .send-button:hover {
+            background: #b91c1c;
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0;
+        }
+
+        .suggestion {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .suggestion:hover {
+            background: #dc2626;
+            color: white;
+        }
+
+        .tutorial-link {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .tutorial-link:hover {
+            text-decoration: underline;
+        }
+
+        .typing {
+            display: none;
+            align-items: center;
+            gap: 5px;
+            color: #6b7280;
+            font-style: italic;
+            padding: 10px 15px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 2px;
+        }
+
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            background: #6b7280;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-6px); }
+        }
+
+        /* Scrollbar personalizada */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #b91c1c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            
+            .chat-container {
+                height: 98vh;
+                border-radius: 15px;
+            }
+            
+            .message-content {
+                max-width: 90%;
+                font-size: 13px;
+            }
+            
+            .suggestion {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🎓 EVA - Centro de e-Learning UTN</h1>
+            <p>Tu Asistente Virtual de Educación a Distancia</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message eva">
+                <div class="avatar">E</div>
+                <div class="message-content">
+                    ¡Hola! Soy EVA, tu asistente del Centro de e-Learning UTN. Puedo ayudarte con:
+                    <br><br>
+                    🎓 <strong>Conceptos</strong>: SIED, flexibilidad educativa<br>
+                    🛠️ <strong>Herramientas</strong>: Moodle, SIGEAD<br>
+                    📚 <strong>Recursos</strong>: tutoriales, materiales<br>
+                    📋 <strong>Metodología</strong>: evaluación, objetivos
+                    <br><br>
+                    ¿En qué puedo ayudarte?
+                </div>
+            </div>
+            
+            <div class="suggestions">
+                <div class="suggestion" onclick="sendSuggestion('¿Qué es el SIED?')">SIED UTN</div>
+                <div class="suggestion" onclick="sendSuggestion('Sincronía vs asincronía')">Sincronía/Asincronía</div>
+                <div class="suggestion" onclick="sendSuggestion('Configurar cuestionarios')">Cuestionarios</div>
+                <div class="suggestion" onclick="sendSuggestion('Herramientas externas')">Herramientas</div>
+                <div class="suggestion" onclick="sendSuggestion('Tutoriales disponibles')">Tutoriales</div>
+                <div class="suggestion" onclick="sendSuggestion('Objetivos de aprendizaje')">Objetivos</div>
+            </div>
+        </div>
+        
+        <div class="typing" id="typing">
+            <div class="avatar">E</div>
+            <span>EVA está escribiendo</span>
+            <div class="typing-dots">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="Escribe tu pregunta aquí..." onkeypress="handleKeyPress(event)">
+                <button class="send-button" onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Base de conocimiento extraída de los documentos
+        const knowledgeBase = {
+            "flexibilidad": {
+                keywords: ["flexibilidad", "flexible", "flexibles"],
+                content: "La flexibilidad en educación se divide en dos tipos:\n\n**Flexibilidad Logística**: Posibilidades tecnológicas para comunicación, tratamiento de información y manejo de documentos, permitiendo traspasar barreras espacio-temporales.\n\n**Flexibilidad Pedagógica**: Amplía y enriquece la forma de aprender mediante mejor aprendizaje social, nuevos modelos y formas de crear conocimiento."
+            },
+            "educacion_distancia": {
+                keywords: ["educación a distancia", "ead", "virtual", "remoto", "online"],
+                content: "**Educación a Distancia (EaD)**: Recurso pedagógico que desarrolla procesos de enseñanza y aprendizaje con diversos medios, permitiendo interacción entre docentes y alumnos en diferentes lugares y tiempos.\n\n**Ventajas**:\n• Ampliación del acceso educativo\n• Flexibilidad temporal y geográfica\n• Seguimiento individualizado\n• Registro completo del proceso"
+            },
+            "sied": {
+                keywords: ["sied", "sistema institucional", "acreditado", "coneau", "utn"],
+                content: "**SIED (Sistema Institucional de Educación a Distancia)**\n\nLa UTN cuenta con un SIED acreditado por CONEAU desde 2017 (Ordenanza 1627).\n\n**Características**:\n• Unidad exclusiva y especializada\n• Miembros dedicados a la modalidad\n• Garantiza calidad y estándares\n• Incluye equipos de diseño, tutoría y apoyo técnico"
+            },
+            "rol_docente": {
+                keywords: ["docente", "profesor", "enseñante", "rol", "maestro", "tutor"],
+                content: "**Rol docente distribuido** en EaD:\n\n**Equipo de diseño**: Contenidista, diseñadores pedagógicos y multimedia\n**Equipo de tutoría**: Coordinador, tutores, asesores\n**Equipos de apoyo**: Unidades tecnológicas y académicas\n\n**Cambios clave**:\n• De transmisor a mediador\n• Trabajo en equipo constante\n• Todo queda registrado y visible"
+            },
+            "sincronia_asincronia": {
+                keywords: ["sincronía", "asincronía", "tiempo real", "diferido", "horarios"],
+                content: "**Sincronía**: Educación en tiempo real\n• Videoconferencias en vivo\n• Chats instantáneos\n• Horarios específicos\n• Interacción inmediata\n\n**Asincronía**: Educación diferida\n• Videos pregrabados\n• Materiales 24/7\n• Flexibilidad horaria\n• Ideal para diferentes zonas horarias"
+            },
+            "campus_virtual": {
+                keywords: ["campus virtual", "moodle", "plataforma", "aula virtual"],
+                content: "**Moodle**: Plataforma LCM de código abierto\n\n**Organización**:\n• Sección INICIO: programa, cronograma\n• Semanas/Temas: contenidos organizados\n• Foro de Novedades\n• Perfil con foto (esencial)\n\n**Importancia de la foto**: Identificación, confianza, reconocimiento, humanización de la experiencia virtual"
+            },
+            "evaluacion": {
+                keywords: ["evaluación", "examen", "calificación", "rúbrica", "criterios"],
+                content: "**Tipos de evaluación**:\n\n• **Diagnóstica**: Conocimientos previos\n• **Formativa**: Durante el proceso\n• **Sumativa**: Al final del curso\n• **De proficiencia**: Competencias generales\n\n**Características de calidad**:\n• Sistemática, integral, formativa\n• Continua, flexible, recurrente\n• Con criterios claros y rúbricas"
+            },
+            "materiales": {
+                keywords: ["materiales", "contenidos", "curaduría", "unidad didáctica"],
+                content: "**Estructura de unidad didáctica**:\n• Título representativo\n• Objetivos medibles (3-4)\n• Índice jerarquizado\n• Introducción\n• Conexiones entre temas\n• Cierre/resumen\n\n**Curaduría**: Selección y organización de recursos educativos de calidad (videos, artículos, simulaciones, podcasts)"
+            },
+            "objetivos": {
+                keywords: ["objetivos", "competencias", "logros", "metas"],
+                content: "**Objetivos bien redactados**:\n\n**Pregunta clave**: ¿Qué podrán hacer los estudiantes al final?\n\n**Características**:\n• Medibles con criterios claros\n• Observables empíricamente\n• Alcanzables en tiempo/recursos\n• Con verbos de acción específicos\n\n**Inicio sugerido**: 'Que los estudiantes logren...'"
+            },
+            "herramientas_externas": {
+                keywords: ["padlet", "chatgpt", "vocaroo", "mentimeter", "herramientas"],
+                content: "**Herramientas externas populares**:\n\n**Padlet**: Muro colaborativo multimedia\n**ChatGPT**: IA para contenido y evaluaciones\n**Vocaroo**: Grabación de audio simple\n**Mentimeter**: Interacción y participación\n\nEstas herramientas enriquecen la experiencia educativa virtual."
+            }
+        };
+
+        const tutorials = [
+            {
+                title: "Ingresar a SIGEAD por primera vez",
+                url: "https://youtu.be/xI76fJ5uv_c"
+            },
+            {
+                title: "Configuración de cuestionario en Moodle",
+                url: "https://youtu.be/WRVQsvuHnpY"
+            },
+            {
+                title: "Actualización de Aulas para Materias y Exámenes",
+                url: "https://view.genially.com/66bb70c66b142672fd380504/guide-actualizacion-de-aulas"
+            },
+            {
+                title: "Creación de grupos automática",
+                url: "https://youtu.be/alHRVEmy6xY"
+            },
+            {
+                title: "Descargar calificaciones con usuarios suspendidos",
+                url: "https://youtu.be/ETVZlDAKx_Y"
+            },
+            {
+                title: "Carga de notas en SIGAD con CSV",
+                url: "https://youtu.be/AEdccUbegqM"
+            },
+            {
+                title: "Tips para gestión de clases de Zoom",
+                url: "https://view.genially.com/660db6e09bb2a80014e192fd/interactive-content-tips-para-clases-de-zoom"
+            },
+            {
+                title: "Importar notas al calificador de Moodle",
+                url: "https://youtu.be/1NW5p5CjYB8"
+            },
+            {
+                title: "Crear un libro de Moodle desde Word",
+                url: "https://view.genially.com/66e464958ebea355c9720ebe/presentation-libro-moodle"
+            },
+            {
+                title: "Crear bases de preguntas con IA",
+                url: "https://youtu.be/GqDYgH4vFyc"
+            },
+            {
+                title: "Configuración del calificador - Nivel inicial",
+                url: "https://view.genially.com/67d4693a7b7a1e02c971ad57/interactive-content-configuracion-del-calificador-nivel-inicial"
+            },
+            {
+                title: "Configuración del calificador - Nivel intermedio",
+                url: "https://view.genially.com/67d5c3b87b7a1e02c968a918/interactive-content-configuracion-del-calificador-nivel-intermedio"
+            },
+            {
+                title: "Configuración del calificador - Nivel avanzado",
+                url: "https://view.genially.com/67ec21eb10a1231600e04f9f/interactive-content-configuracion-del-calificador-nivel-avanzado"
+            },
+            {
+                title: "Generador de fórmulas",
+                url: "https://centrodeelearning.com/files/generador-de-formulas.html"
+            },
+            {
+                title: "Tutorial Padlet",
+                url: "https://youtu.be/P-e3NQsSjfw?feature=shared"
+            },
+            {
+                title: "Tutorial ChatGPT",
+                url: "https://youtu.be/PR2bVLgdylM"
+            },
+            {
+                title: "Tutorial Vocaroo",
+                url: "https://youtu.be/0dgV_mI43H0"
+            },
+            {
+                title: "Tutorial Mentimeter",
+                url: "https://youtu.be/y5MeFJ1S638"
+            },
+            {
+                title: "Agregar foto de perfil",
+                url: "https://www.youtube.com/watch?v=FRZ-Z7_kX_k"
+            },
+            {
+                title: "Calendario Académico 2024",
+                url: "https://centrodeelearning.com/documentos/calendario_academico_2024_carreras.pdf"
+            },
+            {
+                title: "Criterios de evaluación",
+                url: "https://centrodeelearning.com/files/Criterios%20y%20metodología%20de%20evaluación.pdf"
+            }
+        ];
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendSuggestion(text) {
+            document.getElementById('messageInput').value = text;
+            sendMessage();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            showTyping();
+            
+            setTimeout(() => {
+                hideTyping();
+                const response = generateResponse(message);
+                addMessage(response, 'eva');
+            }, 800 + Math.random() * 800);
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            avatar.textContent = sender === 'eva' ? 'E' : 'U';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.innerHTML = formatMessage(text);
+            
+            if (sender === 'eva') {
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(content);
+            } else {
+                messageDiv.appendChild(content);
+                messageDiv.appendChild(avatar);
+            }
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function formatMessage(text) {
+            text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            text = text.replace(/\n/g, '<br>');
+            text = text.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" class="tutorial-link">$1</a>');
+            return text;
+        }
+
+        function showTyping() {
+            document.getElementById('typing').style.display = 'flex';
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTyping() {
+            document.getElementById('typing').style.display = 'none';
+        }
+
+        function generateResponse(message) {
+            const messageLower = message.toLowerCase();
+            
+            if (messageLower.includes('tutorial') || messageLower.includes('video') || messageLower.includes('enlace')) {
+                return generateTutorialResponse(messageLower);
+            }
+            
+            for (const [topic, data] of Object.entries(knowledgeBase)) {
+                for (const keyword of data.keywords) {
+                    if (messageLower.includes(keyword)) {
+                        return data.content;
+                    }
+                }
+            }
+            
+            if (messageLower.includes('cuestionario') || messageLower.includes('examen') || messageLower.includes('evaluación')) {
+                return "**Evaluaciones en Moodle**:\n\n• **Configurar cuestionarios**: " + 
+                       tutorials.find(t => t.title.includes('cuestionario')).url + 
+                       "\n• **Crear preguntas con IA**: " + 
+                       tutorials.find(t => t.title.includes('IA')).url +
+                       "\n• **Criterios de evaluación**: " + 
+                       tutorials.find(t => t.title.includes('Criterios')).url +
+                       "\n\n¿Necesitas ayuda específica con evaluaciones?";
+            }
+            
+            if (messageLower.includes('calificador') || messageLower.includes('notas')) {
+                return "**Calificador de Moodle por niveles**:\n\n" +
+                       "• **Inicial**: " + tutorials.find(t => t.title.includes('inicial')).url + "\n" +
+                       "• **Intermedio**: " + tutorials.find(t => t.title.includes('intermedio')).url + "\n" +
+                       "• **Avanzado**: " + tutorials.find(t => t.title.includes('avanzado')).url + "\n\n" +
+                       "También: importar notas y trabajar con CSV.";
+            }
+            
+            return "Puedo ayudarte con:\n\n🎓 **Conceptos**: SIED, flexibilidad educativa\n🛠️ **Herramientas**: Moodle, SIGEAD\n📚 **Recursos**: tutoriales, materiales\n📋 **Metodología**: evaluación, objetivos\n\n**Ejemplos**:\n• '¿Qué es el SIED?'\n• 'Sincronía vs asincronía'\n• 'Configurar cuestionarios'\n• 'Herramientas externas'";
+        }
+
+        function generateTutorialResponse(message) {
+            if (message.includes('todos') || message.includes('disponibles')) {
+                let response = "**Tutoriales disponibles**:\n\n";
+                tutorials.slice(0, 8).forEach((tutorial, index) => {
+                    response += `${index + 1}. **${tutorial.title}**\n   ${tutorial.url}\n\n`;
+                });
+                response += "¿Necesitas algún tutorial específico?";
+                return response;
+            }
+            
+            const matchedTutorials = tutorials.filter(t => 
+                message.split(' ').some(word => 
+                    t.title.toLowerCase().includes(word)
+                )
+            );
+            
+            if (matchedTutorials.length > 0) {
+                let response = "**Tutoriales encontrados**:\n\n";
+                matchedTutorials.forEach(tutorial => {
+                    response += `• **${tutorial.title}**\n  ${tutorial.url}\n\n`;
+                });
+                return response;
+            }
+            
+            return "Tengo tutoriales sobre: cuestionarios, calificador, SIGEAD, Zoom, herramientas externas, etc. ¿Qué tema te interesa?";
+        }
+    </script>
+</body>
+</html>
