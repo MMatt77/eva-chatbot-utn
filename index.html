@@ -296,17 +296,17 @@
             </div>
             
             <div class="suggestions">
-                <div class="suggestion">Competencias docentes</div>
-                <div class="suggestion">Buenas prácticas</div>
-                <div class="suggestion">Marco pedagógico</div>
-                <div class="suggestion">Guía docente</div>
-                <div class="suggestion">Evaluación integral</div>
-                <div class="suggestion">Cambio pedagógico</div>
-                <div class="suggestion">Herramientas Moodle</div>
-                <div class="suggestion">Tutoriales</div>
-                <div class="suggestion">Campus virtual</div>
-                <div class="suggestion">Materiales</div>
-                <div class="suggestion">Flexibilidad</div>
+                <div class="suggestion" onclick="sendSuggestion('Competencias docentes')">Competencias docentes</div>
+                <div class="suggestion" onclick="sendSuggestion('Buenas prácticas')">Buenas prácticas</div>
+                <div class="suggestion" onclick="sendSuggestion('Marco pedagógico')">Marco pedagógico</div>
+                <div class="suggestion" onclick="sendSuggestion('Autoevaluación docente')">Autoevaluación docente</div>
+                <div class="suggestion" onclick="sendSuggestion('Evaluación integral')">Evaluación integral</div>
+                <div class="suggestion" onclick="sendSuggestion('Cambio pedagógico')">Cambio pedagógico</div>
+                <div class="suggestion" onclick="sendSuggestion('Herramientas Moodle')">Herramientas Moodle</div>
+                <div class="suggestion" onclick="sendSuggestion('Tutoriales')">Tutoriales</div>
+                <div class="suggestion" onclick="sendSuggestion('Campus virtual')">Campus virtual</div>
+                <div class="suggestion" onclick="sendSuggestion('Materiales')">Materiales</div>
+                <div class="suggestion" onclick="sendSuggestion('Flexibilidad')">Flexibilidad</div>
             </div>
         </div>
         
@@ -323,7 +323,7 @@
         <div class="chat-input">
             <div class="input-container">
                 <input type="text" id="messageInput" placeholder="Escribe tu pregunta...">
-                <button class="send-button" id="sendButton">Enviar</button>
+                <button class="send-button" onclick="sendMessage()">Enviar</button>
             </div>
         </div>
     </div>
@@ -336,37 +336,33 @@
             
             "marco pedagógico": "**🧠 Marco Conceptual-Pedagógico del SIED UTN**\n\n¡Te explico de qué se trata! Nuestro enfoque está basado en:\n\n**Enfoque principal** 🎯:\n• **Socioconstructivista**: Aprendemos construyendo conocimiento entre todos\n• **Sistémico**: Todo está conectado e integrado\n• **Mediado por tecnologías**: Usamos la tecnología de manera estratégica\n• **Flexible y dinámico**: Nos adaptamos a los cambios\n\n**Los principios que nos guían** ✨:\n• **Interactividad cognitiva** 🧩: No solo clics, sino pensamiento real\n• **Mediación tecnopedagógica** 💡: Materiales bien diseñados + buen acompañamiento\n• **Formación por competencias** 🎯: Que sepan hacer cosas en la vida real\n• **Comunicación didáctica** 📡: Diálogo que transforma\n• **Entornos virtuales de aprendizaje** 🌐: Espacios que realmente funcionan\n\n¿Te gustaría que profundice en alguno de estos aspectos?",
             
+            "autoevaluación docente": "**📋 Guía de Autoevaluación Docente**\n\n¡Esta metodología está muy buena! Son **3 momentos** que te ayudan a reflexionar sobre tu práctica:\n\n**🎯 MOMENTO PREACTIVO (antes)**:\n• Tiempo de **planificar e investigar**\n• Desaprender cosas que ya no sirven\n• Adoptar e internalizar nuevas prácticas\n• Incluye 8 criterios + 3 preguntas para reflexionar\n• **La meta**: Generar rupturas y una nueva cultura didáctica\n\n**⚡ MOMENTO DE INTERVENCIÓN (durante)**:\n• Es cuando **aplicás las buenas prácticas** en tus clases\n• Evaluar, instruir, transferir, mediar, retroalimentar\n• Los estudiantes también evalúan el impacto\n• **La meta**: Monitoreo permanente y ajustes necesarios\n\n**🔍 MOMENTO POST-TÁCTICO (después)**:\n• Tiempo de **reflexionar** sobre todo el proceso\n• Analizar, autoevaluar, apreciar lo hecho\n• Incluye 18 preguntas categorizadas\n• **La meta**: Determinar si el cambio fue superficial o profundo\n\nEs como una radiografía de tu práctica docente. ¿Te interesa empezar con algún momento en particular?",
+            
+            "cambio pedagógico": "**🔄 Tipos de Cambio Pedagógico**\n\n¡Esto está bueno! Te explico los dos tipos de cambio que pueden pasar cuando adoptás nuevas prácticas:\n\n**Cambio Tipo 1 (Superficial)** 😐:\n• Son modificaciones \"de fachada\"\n• No cambia realmente tu forma de pensar la enseñanza\n• Lo hacés porque \"hay que hacerlo\"\n• Los resultados son temporales\n• Es como poner un parche\n\n**Cambio Tipo 2 (Profundo)** 🌟:\n• Es una transformación genuina\n• Realmente modifica tu conocimiento pedagógico\n• Lo hacés porque estás convencido/a\n• El impacto es duradero\n• Cambia tu manera de enseñar para siempre\n\n**¿Cómo saber cuál tenés?** 🤔\nSi más del 50% de tus respuestas en la autoevaluación corresponden al Cambio Tipo 2, ¡felicitaciones! Lograste una transformación pedagógica genuina.\n\nLo importante es ser honesto/a con uno mismo. ¿Sentís que realmente cambió tu forma de enseñar o solo agregaste algunas herramientas?",
+            
             "herramientas moodle": "**🛠️ Herramientas de Moodle**\n\n¡Moodle tiene un montón de herramientas geniales! Te cuento las principales:\n\n**Lo que más vas a usar** 😊:\n• **Cuestionarios**: Para evaluaciones automáticas (¡se corrigen solos!)\n• **Foros**: Discusiones que no necesitan horario fijo\n• **Tareas**: Para que entreguen trabajos de manera organizada\n• **Libros**: Contenido bien estructurado y fácil de seguir\n• **Calificador**: Para manejar todas las notas en un lugar\n• **Grupos**: Organizar estudiantes para trabajos colaborativos\n\n**Tutoriales que te van a servir** 📚:\n• **Configurar cuestionarios**: https://youtu.be/WRVQsvuHnpY\n• **Calificador inicial**: https://view.genially.com/67d4693a7b7a1e02c971ad57/interactive-content-configuracion-del-calificador-nivel-inicial\n• **Calificador intermedio**: https://view.genially.com/67d5c3b87b7a1e02c968a918/interactive-content-configuracion-del-calificador-nivel-intermedio\n• **Calificador avanzado**: https://view.genially.com/67ec21eb10a1231600e04f9f/interactive-content-configuracion-del-calificador-nivel-avanzado\n• **Creación de grupos**: https://youtu.be/alHRVEmy6xY\n• **Crear libro desde Word**: https://view.genially.com/66e464958ebea355c9720ebe/presentation-libro-moodle\n• **Importar notas**: https://youtu.be/1NW5p5CjYB8\n\n¿Con cuál te gustaría empezar?",
             
             "tutoriales": "**📚 Tutoriales que tengo para vos**\n\n¡Acá tenés todo organizado para que encuentres lo que necesitás! 😊\n\n**🛠️ HERRAMIENTAS TÉCNICAS:**\n\n**Para SIGEAD:**\n• **Tu primera vez en SIGEAD**: https://youtu.be/xI76fJ5uv_c\n• **Subir notas con CSV**: https://youtu.be/AEdccUbegqM\n• **Descargar calificaciones**: https://youtu.be/ETVZlDAKx_Y\n\n**Para MOODLE:**\n• **Armar cuestionarios**: https://youtu.be/WRVQsvuHnpY\n• **Calificador nivel básico**: https://view.genially.com/67d4693a7b7a1e02c971ad57/interactive-content-configuracion-del-calificador-nivel-inicial\n• **Calificador nivel intermedio**: https://view.genially.com/67d5c3b87b7a1e02c968a918/interactive-content-configuracion-del-calificador-nivel-intermedio\n• **Calificador nivel pro**: https://view.genially.com/67ec21eb10a1231600e04f9f/interactive-content-configuracion-del-calificador-nivel-avanzado\n• **Crear grupos automáticamente**: https://youtu.be/alHRVEmy6xY\n• **De Word a libro de Moodle**: https://view.genially.com/66e464958ebea355c9720ebe/presentation-libro-moodle\n• **Importar notas fácil**: https://youtu.be/1NW5p5CjYB8\n• **Preguntas con IA**: https://youtu.be/GqDYgH4vFyc\n• **Poner foto en el perfil**: https://youtu.be/FRZ-Z7_kX_k\n\n**Para AULAS VIRTUALES:**\n• **Actualizar aulas**: https://view.genially.com/66bb70c66b142672fd380504/guide-actualizacion-de-aulas\n• **Tips para Zoom**: https://view.genially.com/660db6e09bb2a80014e192fd/interactive-content-tips-para-clases-de-zoom\n\n**🎯 HERRAMIENTAS EXTERNAS (¡súper útiles!):**\n• **Padlet (muros colaborativos)**: https://youtu.be/P-e3NQsSjfw\n• **ChatGPT para educación**: https://youtu.be/PR2bVLgdylM\n• **Vocaroo (audios rápidos)**: https://youtu.be/0dgV_mI43H0\n• **Mentimeter (interacción)**: https://youtu.be/y5MeFJ1S638\n\n**🧮 HERRAMIENTAS ESPECIALES:**\n• **Generador de fórmulas**: https://centrodeelearning.com/files/generador-de-formulas.html\n\n**📅 INFO PRÁCTICA:**\n• **Calendario 2024**: https://centrodeelearning.com/documentos/calendario_academico_2024_carreras.pdf\n• **Cómo evaluar bien**: https://centrodeelearning.com/files/Criterios%20y%20metodología%20de%20evaluación.pdf\n\n¿Te ayudo con alguno en particular? 😊",
             
-            "flexibilidad": "**🔧 Flexibilidad en Educación**\n\n¡La flexibilidad es una de las cosas más geniales de la educación a distancia! Te explico:\n\n**Tenemos dos tipos que se complementan** 😊:\n\n**Flexibilidad Logística** 🔧:\n• Usamos la tecnología para conectarnos sin importar el lugar\n• Rompemos las barreras de tiempo y espacio\n• Podemos trabajar juntos aunque estemos lejos\n• ¡No más \"llegué tarde por el tráfico\"!\n\n**Flexibilidad Pedagógica** 🎯:\n• Cada uno puede aprender a su ritmo y manera\n• Usamos metodologías que se adaptan al estudiante\n• Personalizamos las trayectorias educativas\n• Creamos conocimiento entre todos\n\nEsto significa que podés estudiar cuando tenés tiempo, desde donde estés, y de la manera que mejor te funcione. ¡Esa es la magia de la EaD! ✨\n\n¿Querés saber más sobre cómo aplicar esta flexibilidad en tus clases?",
+            "campus virtual": "**💻 Campus Virtual UTN**\n\n¡El campus virtual es nuestro hogar digital! Te cuento qué necesitás saber:\n\n**Lo básico de Moodle** 🏠:\n• Es una plataforma de código abierto (¡gratis y buena!)\n• Se organiza por semanas o por temas\n• Tiene un Foro de Novedades (¡siempre revisalo!)\n• **Tu perfil con foto es súper importante**\n\n**¿Por qué la foto es tan importante?** 📸:\n• Te identifica como persona real\n• Genera confianza en los estudiantes\n• Humaniza la experiencia virtual\n• Ayuda al reconocimiento en la comunidad\n\n**Tutorial para la foto**:\n• **Cómo agregar tu foto**: https://youtu.be/FRZ-Z7_kX_k\n\nPensá que el campus virtual es como tu aula, tu oficina y tu sala de profesores, todo en uno. ¡Hacelo un lugar cálido y acogedor! 😊\n\n¿Necesitás ayuda con alguna función específica del campus?",
             
             "materiales": "**📚 Materiales Didácticos**\n\n¡Crear buenos materiales es todo un arte! Te cuento cómo hacerlo bien:\n\n**La estructura que funciona** 📝:\n• **Título claro**: Que se entienda de qué se trata\n• **Objetivos medibles**: 3 o 4 que sean concretos\n• **Índice organizado**: Para que se ubiquen fácil\n• **Introducción amigable**: Que enganche desde el inicio\n• **Conexiones claras**: Cómo se relaciona todo\n• **Cierre que cierre**: Un buen resumen al final\n\n**Curaduría de contenidos** (o sea, elegir cosas buenas):\n• Videos que realmente aporten\n• Artículos bien seleccionados\n• Simulaciones que funcionen\n• Podcasts interesantes\n\n**Tutorial que te va a servir**:\n• **De Word a libro de Moodle**: https://view.genially.com/66e464958ebea355c9720ebe/presentation-libro-moodle\n\nLo importante es que tus materiales sean útiles, claros y que realmente ayuden a aprender. ¿Querés tips para algún tipo de material en particular?",
             
-            "campus virtual": "**💻 Campus Virtual UTN**\n\n¡El campus virtual es nuestro hogar digital! Te cuento qué necesitás saber:\n\n**Lo básico de Moodle** 🏠:\n• Es una plataforma de código abierto (¡gratis y buena!)\n• Se organiza por semanas o por temas\n• Tiene un Foro de Novedades (¡siempre revisalo!)\n• **Tu perfil con foto es súper importante**\n\n**¿Por qué la foto es tan importante?** 📸:\n• Te identifica como persona real\n• Genera confianza en los estudiantes\n• Humaniza la experiencia virtual\n• Ayuda al reconocimiento en la comunidad\n\n**Tutorial para la foto**:\n• **Cómo agregar tu foto**: https://youtu.be/FRZ-Z7_kX_k\n\nPensá que el campus virtual es como tu aula, tu oficina y tu sala de profesores, todo en uno. ¡Hacelo un lugar cálido y acogedor! 😊\n\n¿Necesitás ayuda con alguna función específica del campus?",
+            "flexibilidad": "**🔧 Flexibilidad en Educación**\n\n¡La flexibilidad es una de las cosas más geniales de la educación a distancia! Te explico:\n\n**Tenemos dos tipos que se complementan** 😊:\n\n**Flexibilidad Logística** 🔧:\n• Usamos la tecnología para conectarnos sin importar el lugar\n• Rompemos las barreras de tiempo y espacio\n• Podemos trabajar juntos aunque estemos lejos\n• ¡No más \"llegué tarde por el tráfico\"!\n\n**Flexibilidad Pedagógica** 🎯:\n• Cada uno puede aprender a su ritmo y manera\n• Usamos metodologías que se adaptan al estudiante\n• Personalizamos las trayectorias educativas\n• Creamos conocimiento entre todos\n\nEsto significa que podés estudiar cuando tenés tiempo, desde donde estés, y de la manera que mejor te funcione. ¡Esa es la magia de la EaD! ✨\n\n¿Querés saber más sobre cómo aplicar esta flexibilidad en tus clases?",
             
             "evaluación integral": "**📊 Evaluación Integral**\n\n¡Evaluar bien es clave para que el aprendizaje funcione! Te explico los tipos:\n\n**Los 4 tipos que necesitás conocer** 📝:\n• **Diagnóstica**: Para saber qué saben antes de empezar\n• **Formativa**: Durante todo el proceso (¡la más importante!)\n• **Sumativa**: Al final, para certificar lo aprendido\n• **De proficiencia**: Para competencias generales\n\n**Lo que hace que una evaluación sea buena** ✨:\n• **Sistemática**: Bien planificada, no improvisada\n• **Integral**: Que contemple diferentes aspectos\n• **Continua**: A lo largo del tiempo, no solo al final\n• **Flexible**: Que se adapte a diferentes contextos\n• **Transparente**: Con criterios claros que todos conozcan\n• **Formativa**: Que realmente ayude a aprender\n\n**Recursos que te van a servir**:\n• **Criterios de evaluación**: https://centrodeelearning.com/files/Criterios%20y%20metodología%20de%20evaluación.pdf\n• **Configurar cuestionarios**: https://youtu.be/WRVQsvuHnpY\n• **Crear preguntas con IA**: https://youtu.be/GqDYgH4vFyc\n\n¿Querés que profundicemos en algún tipo de evaluación?",
             
-            "cambio pedagógico": "**🔄 Tipos de Cambio Pedagógico**\n\n¡Esto está bueno! Te explico los dos tipos de cambio que pueden pasar cuando adoptás nuevas prácticas:\n\n**Cambio Tipo 1 (Superficial)** 😐:\n• Son modificaciones \"de fachada\"\n• No cambia realmente tu forma de pensar la enseñanza\n• Lo hacés porque \"hay que hacerlo\"\n• Los resultados son temporales\n• Es como poner un parche\n\n**Cambio Tipo 2 (Profundo)** 🌟:\n• Es una transformación genuina\n• Realmente modifica tu conocimiento pedagógico\n• Lo hacés porque estás convencido/a\n• El impacto es duradero\n• Cambia tu manera de enseñar para siempre\n\n**¿Cómo saber cuál tenés?** 🤔\nSi más del 50% de tus respuestas en la autoevaluación corresponden al Cambio Tipo 2, ¡felicitaciones! Lograste una transformación pedagógica genuina.\n\nLo importante es ser honesto/a con uno mismo. ¿Sentís que realmente cambió tu forma de enseñar o solo agregaste algunas herramientas?",
-            
-            "guía docente": "**📋 Guía de Autoevaluación Docente**\n\n¡Esta metodología está muy buena! Son **3 momentos** que te ayudan a reflexionar sobre tu práctica:\n\n**🎯 MOMENTO PREACTIVO (antes)**:\n• Tiempo de **planificar e investigar**\n• Desaprender cosas que ya no sirven\n• Adoptar e internalizar nuevas prácticas\n• Incluye 8 criterios + 3 preguntas para reflexionar\n• **La meta**: Generar rupturas y una nueva cultura didáctica\n\n**⚡ MOMENTO DE INTERVENCIÓN (durante)**:\n• Es cuando **aplicás las buenas prácticas** en tus clases\n• Evaluar, instruir, transferir, mediar, retroalimentar\n• Los estudiantes también evalúan el impacto\n• **La meta**: Monitoreo permanente y ajustes necesarios\n\n**🔍 MOMENTO POST-TÁCTICO (después)**:\n• Tiempo de **reflexionar** sobre todo el proceso\n• Analizar, autoevaluar, apreciar lo hecho\n• Incluye 18 preguntas categorizadas\n• **La meta**: Determinar si el cambio fue superficial o profundo\n\nEs como una radiografía de tu práctica docente. ¿Te interesa empezar con algún momento en particular?",
-            
-            "rol docente": "**👨‍🏫 Rol Docente en Educación a Distancia**\n\n¡El rol docente en EaD es súper interesante! 😊 Es como trabajar en equipo, donde cada uno tiene su especialidad:\n\n**🎨 Equipo de diseño**:\n• **Contenidista**: El que sabe del tema a fondo\n• **Diseñadores pedagógicos**: Hacen que sea fácil aprender\n• **Diseñadores gráficos y multimedia**: Lo hacen bonito y funcional\n\n**👥 Equipo de tutoría**:\n• **Coordinador**: Organiza todo el proceso\n• **Tutores**: Acompañan a los estudiantes día a día\n• **Asesores**: Ayudan con lo técnico y metodológico\n\n**Lo que cambió del modelo tradicional** 🔄:\n• **Antes**: Transmitir información ➜ **Ahora**: Facilitar que aprendan\n• **Antes**: Trabajo individual ➜ **Ahora**: Siempre en equipo\n• **Antes**: Sin registro ➜ **Ahora**: Todo se registra (¡no hay excusas! 😅)\n• **Antes**: Presencial ➜ **Ahora**: Mediado por tecnología\n\n**Tu nuevo rol incluye**:\n• Ser facilitador del aprendizaje\n• Diseñar experiencias significativas\n• Acompañar procesos individuales\n• Trabajar colaborativamente\n• Usar tecnología de manera pedagógica\n\n¿Te interesa saber más sobre algún rol específico del equipo?",
-            
-            "educacion a distancia": "**📚 Educación a Distancia - Marco Conceptual**\n\n¡Te explico qué es realmente la EaD desde el punto de vista académico! 😊\n\n**Definición oficial** 📖\n• **Diálogo didáctico mediado** entre profesor-institución y estudiante\n• Caracterizada por la **capacidad de aprender de forma independiente y colaborativa**\n• **Separación espacial y temporal** entre docente y alumno\n• **Comunicación mediada por tecnologías**\n\n**Características distintivas** ✨\n• **Flexibilidad temporal y espacial**: Estudiás cuando y donde podés\n• **Aprendizaje autorregulado**: Vos gestionás tu proceso\n• **Apoyo institucional sistemático**: La universidad te acompaña\n• **Comunicación mediada**: Usamos tecnología para conectarnos\n• **Registro integral**: Todo queda documentado\n\n**Ventajas estratégicas** 🎯\n• **Democratización del acceso**: Más gente puede estudiar\n• **Superación de limitaciones**: Geográficas y socioeconómicas\n• **Personalización**: Cada uno a su ritmo\n• **Flexibilidad metodológica**: Diferentes formas de aprender\n\n**Requisitos para la calidad** 🏆\n• Infraestructura tecnológica robusta\n• Planificación pedagógica especializada\n• Equipos multidisciplinarios capacitados\n• Sistema de evaluación continua\n• Soporte técnico y académico permanente\n\n¿Te interesa profundizar en algún aspecto conceptual específico?",
-            
-            "sincronía asincronía": "**⏰ Sincronía y Asincronía en Educación a Distancia**\n\n¡Una de las características más importantes de la EaD! Te explico:\n\n**🔴 Actividades Sincrónicas (en tiempo real)**:\n• **Videoconferencias** donde todos participamos al mismo tiempo\n• **Chats en vivo** para consultas inmediatas\n• **Clases virtuales** con horario fijo\n• **Webinars** y conferencias en línea\n• **Trabajo colaborativo** en tiempo real\n\n**⏰ Actividades Asincrónicas (en diferido)**:\n• **Videos grabados** que podés ver cuando quieras\n• **Foros de discusión** donde participás a tu ritmo\n• **Materiales de estudio** disponibles 24/7\n• **Tareas y trabajos** con fechas de entrega flexibles\n• **Evaluaciones** que podés hacer en tu tiempo\n\n**Lo mejor de la EaD** ✨\n• **Combinamos ambas modalidades** según las necesidades pedagógicas\n• **Flexibilidad** para quienes trabajan o tienen otras responsabilidades\n• **Momentos de encuentro** para mantener la comunidad de aprendizaje\n• **Personalización** del ritmo de estudio\n\n**En la práctica pedagógica**:\n• Las **actividades sincrónicas** generan comunidad y resuelven dudas\n• Las **actividades asincrónicas** permiten reflexión y estudio profundo\n• La **combinación estratégica** potencia el aprendizaje\n\n¿Querés saber más sobre cómo diseñar actividades en cada modalidad?",
-            
             "sied": "**🏛️ SIED - Sistema Institucional de Educación a Distancia UTN**\n\n¡Te cuento sobre nuestro sistema! El SIED es la estructura que garantiza la calidad en educación a distancia 😊\n\n**¿Qué es el SIED UTN?** 🎯\n• **Sistema Institucional** de Educación a Distancia\n• **Acreditado por CONEAU** desde 2017\n• **Ordenanza 1637** del Consejo Superior\n• Certifica cumplimiento de **estándares nacionales de calidad**\n\n**¿Por qué es importante?** ✨\n• **Validez académica** equivalente a modalidad presencial\n• **Diplomas sin mención** de modalidad pedagógica\n• **Marco normativo** específico para EaD\n• **Estructura organizacional** especializada\n\n**Componentes principales** 🏗️:\n• **Unidad de Gestión**: Coordina marco pedagógico y procedimental\n• **CEA (Consejo de Educación a Distancia)**: Evaluación y asesoramiento\n• **RED**: Red de Referentes por Unidad Académica\n• **Secretarías de apoyo**: TIC, Ciencia y Tecnología\n\n**Lo que nos distingue** 🌟:\n• **Calidad certificada** por organismo nacional\n• **Procesos normados** en todas las Unidades Académicas\n• **Trabajo articulado** de todos los actores\n• **Democratización** del acceso a educación superior\n\nEsta acreditación posiciona a la UTN como **institución de referencia** en educación a distancia de calidad en Argentina. ¿Te interesa saber más sobre algún componente específico?",
-            
-            "sistema institucional": "**🏛️ SIED UTN - Sistema de Calidad Certificada**\n\n¡El SIED es nuestro orgullo! Te explico por qué es tan importante:\n\n**Acreditación CONEAU** 🏆\n• **Desde 2017** tenemos la acreditación oficial\n• **Estándares nacionales** de calidad cumplidos\n• **Reconocimiento** como institución de referencia\n• **Validez académica** equivalente a presencial\n\n**Estructura organizacional** 🏗️\n• **Unidad de Gestión en EaD**: Dependiente de Secretaría Académica\n• **CEA**: Consejo de Educación a Distancia (mínimo 3 especialistas)\n• **RED**: Red de Referentes (uno por Unidad Académica)\n• **Secretarías**: TIC y Ciencia, Tecnología y Posgrado\n\n**Propósitos del SIED** 🎯\n• Democratizar el acceso a educación superior\n• Consolidar procesos formativos de calidad\n• Implementar procesos normados\n• Asegurar trabajo articulado institucional\n\n**Marco regulatorio** 📜\n• **Ordenanza N° 1637/2018**: Reglamento del SIED\n• **Criterio cuantitativo**: +50% horas no presenciales = a distancia\n• **Equivalencia académica**: Sin mención de modalidad en diplomas\n\n¿Querés saber más sobre algún componente específico del SIED?",
             
             "licenciatura": "**🎓 Reglamento de Ciclos de Licenciatura UTN (Ordenanza 1623)**\n\n¡Te cuento sobre el marco regulatorio para las licenciaturas! 😊\n\n**¿Qué regula la Ordenanza 1623?** 📜\n• **Todos los Ciclos de Licenciatura** de la UTN\n• Aprobada en **2018** (deroga Ordenanza 1163)\n• **Marco normativo actualizado** según transformación curricular\n• **Obligatorio** en todas las Facultades Regionales\n\n**Régimen de Ingreso** 🎯\n• **Requisitos**: Título superior + 1600 horas mínimas + 2.5 años duración\n• **3 modalidades**: Ingreso directo, por pase, por equivalencia\n• **Límite**: Máximo 30% de asignaturas por equivalencia\n\n**Régimen de Cursado** 📚\n• **Modalidades**: Presencial y a distancia\n• **Asistencia presencial**: 75% obligatorio\n• **Modalidad a distancia**: Actividades presenciales según diseño curricular\n• **Cursado obligatorio**: Validez 1 año (prorrogable)\n\n**Evaluación y Calificación** 📊\n• **Escala**: 1-10 (mínimo 6 para aprobar)\n• **Tipos**: Diagnóstica, formativa, sumativa, proficiencia\n• **Tribunales**: Mínimo 3 profesores\n• **Aprobación directa** como régimen principal\n\n**Certificados y Títulos** 🏆\n• **Constancias**: De materias cursadas/aprobadas\n• **Certificado final**: Base para diploma\n• **Diplomas**: Procedimiento completo de otorgamiento\n• **Duplicados**: En casos específicos\n\n¿Te interesa profundizar en algún aspecto específico del reglamento de licenciatura?",
             
             "ordenanza 1623": "**📜 Ordenanza N° 1623 - Reglamento Ciclos de Licenciatura**\n\n¡Esta es la norma que regula todas las licenciaturas de la UTN! Te explico:\n\n**Marco regulatorio** 🏛️\n• **Aprobada en 2018** por el Consejo Superior\n• **Deroga** la Ordenanza N° 1163 anterior\n• **Ámbito**: Todas las Facultades Regionales UTN\n• **Vigencia**: Desde ciclo lectivo 2018\n\n**Principales aspectos que regula** 📋\n• **Ingreso**: Requisitos y modalidades (directo, pase, equivalencia)\n• **Inscripción**: Documentación y procedimientos\n• **Cursado**: Presencial y a distancia\n• **Evaluación**: Criterios y metodologías\n• **Aprobación**: Directa y por examen final\n• **Certificación**: Constancias, diplomas y títulos\n\n**Características del cursado** 🎯\n• **Flexibilidad**: Presencial o a distancia\n• **Asistencia**: 75% en modalidad presencial\n• **Evaluación continua**: Con recuperación\n• **Calificación**: Escala 1-10\n• **Validez**: Cursado vigente por 1 año\n\n**Propósitos** ✨\n• Actualizar organización académica\n• Establecer lineamientos claros\n• Continuar transformación curricular\n• Cumplir normativas de Educación Superior\n\nEsta ordenanza modernizó completamente el marco regulatorio de las licenciaturas. ¿Necesitás información específica sobre algún aspecto?",
             
-            "reglamento licenciatura": "**🎓 Reglamento de Licenciaturas UTN**\n\n¡Te explico cómo funciona el sistema de licenciaturas en la UTN! 😊\n\n**Marco normativo** 📜\n• **Ordenanza N° 1623/2018**: Reglamento principal\n• **Aplicación obligatoria** en todas las Facultades Regionales\n• **Equivalencia académica**: Misma validez que modalidad presencial\n\n**Ingreso a Licenciaturas** 🚪\n• **Título previo requerido**: Educación superior oficial\n• **Duración mínima**: 1600 horas reloj y 2.5 años\n• **Tres formas de ingreso**:\n  - Directo (con todos los requisitos)\n  - Por pase (entre Facultades UTN)\n  - Por equivalencia (máximo 30%)\n\n**Sistema de Cursado** 📚\n• **Modalidades**: Presencial o a distancia\n• **Cursado obligatorio** para todas las materias\n• **Asistencia presencial**: 75% mínimo\n• **Actividades presenciales en EaD**: Según diseño curricular\n\n**Evaluación** 📊\n• **Régimen**: Aprobación directa principalmente\n• **Escala**: 1 a 10 (mínimo 6 para aprobar)\n• **Recuperación**: Al menos una instancia por evaluación\n• **Examen final**: Para quienes no logran aprobación directa\n\n**Certificación** 🏆\n• **Constancias**: Durante la carrera\n• **Certificado final**: Para obtener diploma\n• **Diploma**: Sin mención de modalidad\n\n¿Querés saber más detalles sobre algún aspecto específico del reglamento?"
+            "educacion a distancia": "**📚 Educación a Distancia - Marco Conceptual**\n\n¡Te explico qué es realmente la EaD desde el punto de vista académico! 😊\n\n**Definición oficial** 📖\n• **Diálogo didáctico mediado** entre profesor-institución y estudiante\n• Caracterizada por la **capacidad de aprender de forma independiente y colaborativa**\n• **Separación espacial y temporal** entre docente y alumno\n• **Comunicación mediada por tecnologías**\n\n**Características distintivas** ✨\n• **Flexibilidad temporal y espacial**: Estudiás cuando y donde podés\n• **Aprendizaje autorregulado**: Vos gestionás tu proceso\n• **Apoyo institucional sistemático**: La universidad te acompaña\n• **Comunicación mediada**: Usamos tecnología para conectarnos\n• **Registro integral**: Todo queda documentado\n\n**Ventajas estratégicas** 🎯\n• **Democratización del acceso**: Más gente puede estudiar\n• **Superación de limitaciones**: Geográficas y socioeconómicas\n• **Personalización**: Cada uno a su ritmo\n• **Flexibilidad metodológica**: Diferentes formas de aprender\n\n**Requisitos para la calidad** 🏆\n• Infraestructura tecnológica robusta\n• Planificación pedagógica especializada\n• Equipos multidisciplinarios capacitados\n• Sistema de evaluación continua\n• Soporte técnico y académico permanente\n\n¿Te interesa profundizar en algún aspecto conceptual específico?",
+            
+            "sincronia asincronia": "**⏰ Sincronía y Asincronía en Educación a Distancia**\n\n¡Una de las características más importantes de la EaD! Te explico:\n\n**🔴 Actividades Sincrónicas (en tiempo real)**:\n• **Videoconferencias** donde todos participamos al mismo tiempo\n• **Chats en vivo** para consultas inmediatas\n• **Clases virtuales** con horario fijo\n• **Webinars** y conferencias en línea\n• **Trabajo colaborativo** en tiempo real\n\n**⏰ Actividades Asincrónicas (en diferido)**:\n• **Videos grabados** que podés ver cuando quieras\n• **Foros de discusión** donde participás a tu ritmo\n• **Materiales de estudio** disponibles 24/7\n• **Tareas y trabajos** con fechas de entrega flexibles\n• **Evaluaciones** que podés hacer en tu tiempo\n\n**Lo mejor de la EaD** ✨\n• **Combinamos ambas modalidades** según las necesidades pedagógicas\n• **Flexibilidad** para quienes trabajan o tienen otras responsabilidades\n• **Momentos de encuentro** para mantener la comunidad de aprendizaje\n• **Personalización** del ritmo de estudio\n\n**En la práctica pedagógica**:\n• Las **actividades sincrónicas** generan comunidad y resuelven dudas\n• Las **actividades asincrónicas** permiten reflexión y estudio profundo\n• La **combinación estratégica** potencia el aprendizaje\n\n¿Querés saber más sobre cómo diseñar actividades en cada modalidad?",
+            
+            "rol docente": "**👨‍🏫 Rol Docente en Educación a Distancia**\n\n¡El rol docente en EaD es súper interesante! 😊 Es como trabajar en equipo, donde cada uno tiene su especialidad:\n\n**🎨 Equipo de diseño**:\n• **Contenidista**: El que sabe del tema a fondo\n• **Diseñadores pedagógicos**: Hacen que sea fácil aprender\n• **Diseñadores gráficos y multimedia**: Lo hacen bonito y funcional\n\n**👥 Equipo de tutoría**:\n• **Coordinador**: Organiza todo el proceso\n• **Tutores**: Acompañan a los estudiantes día a día\n• **Asesores**: Ayudan con lo técnico y metodológico\n\n**Lo que cambió del modelo tradicional** 🔄:\n• **Antes**: Transmitir información ➜ **Ahora**: Facilitar que aprendan\n• **Antes**: Trabajo individual ➜ **Ahora**: Siempre en equipo\n• **Antes**: Sin registro ➜ **Ahora**: Todo se registra (¡no hay excusas! 😅)\n• **Antes**: Presencial ➜ **Ahora**: Mediado por tecnología\n\n**Tu nuevo rol incluye**:\n• Ser facilitador del aprendizaje\n• Diseñar experiencias significativas\n• Acompañar procesos individuales\n• Trabajar colaborativamente\n• Usar tecnología de manera pedagógica\n\n¿Te interesa saber más sobre algún rol específico del equipo?"
         };
 
         function sendMessage() {
@@ -383,6 +379,18 @@
             setTimeout(() => {
                 hideTyping();
                 const response = generateResponse(message);
+                addMessage(response, 'eva');
+            }, 800 + Math.random() * 800);
+        }
+
+        function sendSuggestion(suggestion) {
+            addMessage(suggestion, 'user');
+            
+            showTyping();
+            
+            setTimeout(() => {
+                hideTyping();
+                const response = generateResponse(suggestion);
                 addMessage(response, 'eva');
             }, 800 + Math.random() * 800);
         }
@@ -432,37 +440,29 @@
         function generateResponse(message) {
             const messageLower = message.toLowerCase();
             
-            // PRIORIDAD 1: Conceptos teóricos específicos (antes de la búsqueda general)
-            if (messageLower.includes('educación a distancia') || messageLower.includes('ead') || (messageLower.includes('virtual') && !messageLower.includes('campus')) || messageLower.includes('remoto') || messageLower.includes('online')) {
-                return knowledgeBase["educacion a distancia"];
+            // Búsqueda específica para autoevaluación docente
+            if (messageLower.includes('autoevaluación') || messageLower.includes('autoevaluacion') || 
+                messageLower.includes('auto evaluación') || messageLower.includes('auto-evaluación') ||
+                (messageLower.includes('guía') && messageLower.includes('docente')) ||
+                (messageLower.includes('metodología') && messageLower.includes('docente')) ||
+                messageLower.includes('momentos pedagógicos') || messageLower.includes('preactivo') ||
+                messageLower.includes('post-táctico') || messageLower.includes('post tactico') ||
+                messageLower.includes('intervención pedagógica') || messageLower.includes('intervencion pedagogica') ||
+                (messageLower.includes('reflexión') && messageLower.includes('docente')) ||
+                (messageLower.includes('reflexion') && messageLower.includes('docente'))) {
+                return knowledgeBase["autoevaluación docente"];
             }
             
-            if (messageLower.includes('sincronía') || messageLower.includes('asincronía') || messageLower.includes('tiempo real') || messageLower.includes('diferido')) {
-                return knowledgeBase["sincronía asincronía"];
+            // Búsqueda específica para cambio pedagógico
+            if (messageLower.includes('cambio pedagógico') || messageLower.includes('cambio pedagogico') ||
+                messageLower.includes('transformación pedagógica') || messageLower.includes('transformacion pedagogica') ||
+                messageLower.includes('tipo 1') || messageLower.includes('tipo 2') ||
+                (messageLower.includes('cambio') && (messageLower.includes('superficial') || messageLower.includes('profundo'))) ||
+                messageLower.includes('transformación docente') || messageLower.includes('transformacion docente')) {
+                return knowledgeBase["cambio pedagógico"];
             }
             
-            if ((messageLower.includes('rol') && messageLower.includes('docente')) || messageLower.includes('profesor') || messageLower.includes('enseñante') || messageLower.includes('maestro')) {
-                return knowledgeBase["rol docente"];
-            }
-            
-            // PRIORIDAD 2: Búsqueda en base de conocimiento conceptual
-            for (const [key, content] of Object.entries(knowledgeBase)) {
-                if (messageLower.includes(key)) {
-                    return content;
-                }
-            }
-            
-            // PRIORIDAD 3: Respuestas específicas de saludos y agradecimientos
-            if (messageLower.includes('hola') || messageLower.includes('saludar')) {
-                return "¡Hola! 👋 Qué bueno verte por acá. Soy EVA y estoy para ayudarte con todo lo relacionado a educación a distancia. ¿En qué puedo darte una mano hoy? 😊";
-            }
-            
-            if (messageLower.includes('gracias')) {
-                return "¡De nada! 😊 Me alegra poder ayudarte. Si necesitás algo más, acá estoy. ¡Que tengas un excelente día!";
-            }
-            
-            // PRIORIDAD 4: Tutoriales técnicos y herramientas específicas
-            
+            // Respuestas específicas para herramientas técnicas
             if (messageLower.includes('calendario') || messageLower.includes('fechas')) {
                 return "📅 **Calendario Académico**\n\n¡Acá tenés todas las fechas importantes! 😊\n\n**Link directo**: https://centrodeelearning.com/documentos/calendario_academico_2024_carreras.pdf\n\n**Qué vas a encontrar**:\n• Cuándo empiezan y terminan los cuatrimestres\n• Fechas de inscripciones\n• Cronograma completo de finales\n• Feriados y recesos\n• Todas las actividades académicas del año\n\n¡Siempre conviene tenerlo a mano! ¿Te ayudo con algo más específico sobre las fechas?";
             }
@@ -479,31 +479,33 @@
                 return "**📊 Calificador de Moodle**\n\n¡El calificador puede ser tu mejor amigo o tu dolor de cabeza! 😅 Acá te dejo tutoriales por niveles:\n\n• **Para empezar**: https://view.genially.com/67d4693a7b7a1e02c971ad57/interactive-content-configuracion-del-calificador-nivel-inicial\n• **Nivel intermedio**: https://view.genially.com/67d5c3b87b7a1e02c968a918/interactive-content-configuracion-del-calificador-nivel-intermedio\n• **Nivel avanzado**: https://view.genially.com/67ec21eb10a1231600e04f9f/interactive-content-configuracion-del-calificador-nivel-avanzado\n\n**También súper útil**:\n• **Importar notas fácil**: https://youtu.be/1NW5p5CjYB8\n• **Trabajar con CSV**: https://youtu.be/AEdccUbegqM\n\n¿En qué nivel te sentís más cómodo/a para empezar?";
             }
             
-            if (messageLower.includes('profesor') || messageLower.includes('enseñante') || messageLower.includes('maestro') || messageLower.includes('tutor')) {
-                return knowledgeBase["rol docente"];
-            }
-            
             if (messageLower.includes('fórmula') || messageLower.includes('matemática') || messageLower.includes('ecuación') || messageLower.includes('generador')) {
                 return "**🧮 Generador de Fórmulas para Calificador de Moodle**\n\n¡Esta herramienta la diseñamos especialmente para ustedes! 😊\n\n• **Herramienta UTN**: https://centrodeelearning.com/files/generador-de-formulas.html\n\n**¿Para qué te sirve específicamente?** 🎯\n• **Facilitar la configuración del calificador de Moodle**\n• Generar fórmulas para criterios de evaluación\n• Configurar de manera más sencilla y precisa\n• Automatizar cálculos en tus aulas virtuales\n\n**¿Cómo te ayuda?** ⚙️\n• Simplificas la configuración de evaluaciones\n• Reduces errores en las fórmulas del calificador\n• Ahorras tiempo en la configuración\n• Lográs mayor precisión en los criterios\n\n**Perfecto para**:\n• Configurar ponderaciones complejas\n• Crear criterios de evaluación específicos\n• Automatizar cálculos de notas\n• Configurar evaluaciones con múltiples componentes\n\n**¿Lo conocías?** Es una herramienta que desarrollamos pensando específicamente en las necesidades de los docentes UTN para el calificador. ¡Te va a hacer la vida mucho más fácil! 🚀\n\n¿Necesitás ayuda para configurar algún criterio de evaluación en particular?";
-            }
-            
-            if (messageLower.includes('coneau') || messageLower.includes('acreditado') || messageLower.includes('utn')) {
-                return knowledgeBase["sied"];
-            }
-            
-            if (messageLower.includes('1623') || messageLower.includes('ordenanza 1623')) {
-                return knowledgeBase["ordenanza 1623"];
-            }
-            
-            if (messageLower.includes('reglamento licenciatura') || messageLower.includes('reglamento de licenciatura')) {
-                return knowledgeBase["reglamento licenciatura"];
             }
             
             if (messageLower.includes('padlet')) {
                 return "**📌 Tutorial Padlet**\n\n¡Padlet es una herramienta súper divertida! 🎉\n\n• **Tutorial completo**: https://youtu.be/P-e3NQsSjfw\n\n**¿Por qué me gusta Padlet?** Porque podés crear muros colaborativos multimedia súper fácil. Tus estudiantes van a poder subir textos, imágenes, videos, ¡de todo! Es perfecto para lluvia de ideas, galería de trabajos o presentaciones colaborativas.\n\n¿Te animas a probarlo? 😊";
             }
             
-            if (messageLower.includes('chatgpt') || messageLower.includes('inteligencia artificial') || messageLower.includes('ia')) {
+            // Búsquedas específicas para SIED y licenciaturas (ANTES de IA)
+            if (messageLower.includes('sied') || messageLower.includes('sistema institucional') || 
+                messageLower.includes('coneau') || messageLower.includes('acreditado') ||
+                messageLower.includes('ordenanza 1637')) {
+                return knowledgeBase["sied"];
+            }
+            
+            if (messageLower.includes('licenciatura') || messageLower.includes('licenciaturas') ||
+                messageLower.includes('ordenanza 1623') || messageLower.includes('1623') ||
+                messageLower.includes('reglamento licenciatura')) {
+                return knowledgeBase["licenciatura"];
+            }
+            
+            if (messageLower.includes('ordenanza 1623')) {
+                return knowledgeBase["ordenanza 1623"];
+            }
+            
+            if (messageLower.includes('chatgpt') || messageLower.includes('inteligencia artificial') || 
+                (messageLower.includes('ia') && !messageLower.includes('licenciatura'))) {
                 return "**🤖 ChatGPT e IA en Educación**\n\n¡La IA puede ser tu gran aliada en educación! 🚀\n\n• **Tutorial ChatGPT para docentes**: https://youtu.be/PR2bVLgdylM\n• **Crear preguntas con IA**: https://youtu.be/GqDYgH4vFyc\n\n**Algunas ideas de uso**:\n• Generar preguntas para exámenes\n• Crear ejercicios variados\n• Desarrollar casos de estudio\n• Escribir rúbricas de evaluación\n\n¡Pero siempre revisá y adaptá lo que genere! ¿Te interesa explorar algún uso específico?";
             }
             
@@ -535,52 +537,37 @@
                 return "**🏛️ Actualización de Aulas**\n\n¡Mantener las aulas actualizadas es clave! 🔧\n\n• **Guía completa**: https://view.genially.com/66bb70c66b142672fd380504/guide-actualizacion-de-aulas\n\nEsta guía te va a ayudar con la actualización de aulas para materias y exámenes. ¿Tenés alguna duda específica sobre el proceso?";
             }
             
-            if (messageLower.includes('educación a distancia') || messageLower.includes('ead') || messageLower.includes('virtual') || messageLower.includes('remoto') || messageLower.includes('online')) {
-                return knowledgeBase["educacion a distancia"];
+            if (messageLower.includes('c4l') || messageLower.includes('components for learning') || messageLower.includes('componentes')) {
+                return "**🎨 C4L - Components for Learning**\n\n¡Tenemos una nueva herramienta súper útil en Moodle! 🚀\n\n• **Tutorial paso a paso**: https://www.youtube.com/watch?v=Ud_BwL4jEOw\n\n**¿Qué es C4L?** 🤔\n• **Colección de componentes visuales y semánticos** para Moodle\n• Diseñados especialmente para **mejorar la organización y claridad** de tus materiales\n• **Reduce la carga cognitiva** de los estudiantes\n• **Mejora la accesibilidad** para todos\n\n**¿Cómo lo usás?** ✨\n• **Botón en la barra de herramientas** del editor de Moodle\n• **Un solo clic** para insertar componentes\n• **Personalizás** cada elemento según tus necesidades\n\n**¿Qué podés crear?** 🎯\n• **Recuadros para destacar** conceptos clave\n• **Consejos breves** y llamadas de atención\n• **Citas relevantes** bien organizadas\n• **Información estructurada** de manera atractiva\n\n**Beneficios que vas a notar** 🌟\n• **Mayor claridad y estructura** en tus materiales\n• **Presentaciones más atractivas** y profesionales\n• **Fácil resaltar información clave** y organizar recursos\n• **Mejor experiencia de aprendizaje** para los estudiantes\n\n**¿Dónde podés usarlo?**\n• En tus **recursos y etiquetas**\n• Para **organizar foros** de manera más clara\n• En cualquier **contenido de Moodle** que tenga editor de texto\n\n¡Te animo a explorarlo! Va a hacer que tus materiales se vean mucho más profesionales y organizados. ¿Te interesa saber algo específico sobre cómo usar algún componente? 😊";
             }
             
-            if (messageLower.includes('sincronía') || messageLower.includes('asincronía') || messageLower.includes('tiempo real') || messageLower.includes('diferido') || messageLower.includes('horarios')) {
-                return knowledgeBase["sincronía asincronía"];
+            // Búsqueda en base de conocimiento general
+            for (const [key, content] of Object.entries(knowledgeBase)) {
+                if (messageLower.includes(key)) {
+                    return content;
+                }
             }
-
+            
+            // Saludos y agradecimientos
+            if (messageLower.includes('hola') || messageLower.includes('saludar')) {
+                return "¡Hola! 👋 Qué bueno verte por acá. Soy EVA y estoy para ayudarte con todo lo relacionado a educación a distancia. ¿En qué puedo darte una mano hoy? 😊";
+            }
+            
+            if (messageLower.includes('gracias')) {
+                return "¡De nada! 😊 Me alegra poder ayudarte. Si necesitás algo más, acá estoy. ¡Que tengas un excelente día!";
+            }
+            
             // Respuesta por defecto
             return "¡Hola! Mi fuerte es todo lo relacionado con educación a distancia 😊. Puedo ayudarte con:\n\n👨‍🏫 **Competencias docentes** (las 9 que necesitás para EaD)\n🛠️ **Herramientas** como Moodle, SIGEAD y muchas más\n⭐ **Buenas prácticas** (el modelo Chickering-Gamson está buenísimo)\n🧠 **Marco pedagógico** socioconstructivista\n📊 **Evaluación** de calidad\n🎯 **Transformación docente** y autoevaluación\n📚 **Materiales** didácticos efectivos\n💻 **Campus virtual** y todas sus funciones\n\n¿Sobre qué te gustaría charlar? ¡Preguntame tranquilo/a que estoy para ayudarte! 😄";
         }
 
-        // Inicializar cuando se carga la página
+        // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            // Event listener para el botón enviar
-            document.getElementById('sendButton').addEventListener('click', sendMessage);
-            
-            // Event listener para Enter en el input
+            // Enter para enviar mensaje
             document.getElementById('messageInput').addEventListener('keypress', function(event) {
                 if (event.key === 'Enter') {
                     sendMessage();
                 }
-            });
-            
-            // Event listeners para las sugerencias
-            const suggestions = document.querySelectorAll('.suggestion');
-            const suggestionTexts = [
-                'Competencias docentes EaD',
-                'Buenas prácticas Chickering-Gamson',
-                'Marco conceptual pedagógico',
-                'Guía autoevaluación docente',
-                'Metodología evaluación integral',
-                'Tipos de cambio pedagógico',
-                'Herramientas Moodle',
-                'Tutoriales disponibles',
-                'Campus virtual y plataformas',
-                'Materiales didácticos',
-                'Flexibilidad en educación'
-            ];
-            
-            suggestions.forEach(function(suggestion, index) {
-                suggestion.addEventListener('click', function() {
-                    const input = document.getElementById('messageInput');
-                    input.value = suggestionTexts[index];
-                    sendMessage();
-                });
             });
         });
     </script>
